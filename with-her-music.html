@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<title>REVENANT VX376 SYNTH — Demo · With Her Music</title>
+<style>
+:root{--bg:#06101c;--panel:#0c1b2c;--panel2:#10243a;--line:#1b3b56;--cyan:#50d9ff;--blue:#448cff;--text:#eaf6ff;--muted:#8da9bf;--good:#70e0b1}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#102844 0%,var(--bg) 55%);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+header{padding:23px 18px 15px;border-bottom:1px solid var(--line);background:#06101cdd;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.brand{font-size:12px;letter-spacing:.22em;color:var(--cyan);font-weight:800}.title{font-size:25px;font-weight:800;letter-spacing:.05em;margin:5px 0}.subtitle{color:var(--muted);font-size:12px}
+.status{display:inline-flex;align-items:center;gap:7px;border:1px solid #235444;border-radius:30px;padding:5px 9px;color:var(--good);font-size:11px;margin-top:10px}.dot{width:7px;height:7px;background:var(--good);border-radius:50%}
+main{max-width:760px;margin:auto;padding:16px 14px 100px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:15px}.tab{border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:12px 4px;border-radius:12px;font-weight:700}.tab.active{color:var(--cyan);border-color:var(--cyan);background:#10283a}
+.panel{display:none;background:linear-gradient(150deg,#0d2033,#081522);border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 12px 35px #0003}.panel.active{display:block}.section-title{font-size:17px;font-weight:800;margin:0 0 4px}.hint{color:var(--muted);font-size:12px;line-height:1.5;margin:0 0 15px}
+.card{border:1px solid var(--line);background:#0b1928;border-radius:14px;padding:14px;margin:10px 0}.hero{padding:20px 16px;background:linear-gradient(120deg,#102c43,#0a1727);border-radius:15px;border:1px solid #21516e;margin-bottom:14px}.hero h2{margin:0 0 6px;font-size:21px}.hero p{color:var(--muted);margin:0;line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{padding:14px;border-radius:13px;border:1px solid var(--line);background:#0b1a2a}.tile b{display:block;color:var(--cyan);font-size:12px;letter-spacing:.1em;margin-bottom:6px}.tile span{font-size:13px;color:var(--muted)}
+button,input,textarea{font:inherit}button{cursor:pointer}.primary{background:linear-gradient(100deg,#187eb0,#315fce);border:0;color:white;padding:11px 14px;border-radius:10px;font-weight:750}.secondary{background:#10253a;color:var(--text);border:1px solid var(--line);padding:10px 12px;border-radius:10px}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}input,textarea{width:100%;border:1px solid var(--line);background:#06111e;color:var(--text);padding:12px;border-radius:10px;outline:none}input:focus,textarea:focus{border-color:var(--cyan)}label{display:block;color:var(--muted);font-size:12px;margin:12px 0 6px}
+.chatlog{height:43vh;min-height:260px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:4px 0 12px}.bubble{max-width:90%;padding:11px 13px;border-radius:13px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere}.assistant{align-self:flex-start;background:#10253a;border:1px solid #1b405b}.user{align-self:flex-end;background:#164e70;border:1px solid #267ca7}.tiny{font-size:11px;color:var(--muted);line-height:1.45}
+.track{font-size:19px;font-weight:800;margin:8px 0}.bigicon{font-size:38px;text-align:center;margin:10px}.controls{display:flex;justify-content:center;gap:12px;margin:14px 0}.controls button{min-width:54px;min-height:48px;font-size:17px}.range{padding:0}
+footer{position:fixed;bottom:0;left:0;right:0;background:#06101cf0;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));text-align:center;color:var(--muted);font-size:10px;backdrop-filter:blur(10px)}
+a{color:var(--cyan)}.notice{border-left:3px solid #d6a74b;padding:10px 12px;background:#241f13;color:#e9d8aa;border-radius:5px;font-size:12px;line-height:1.5;margin:12px 0}
+@media(min-width:600px){main{padding-top:22px}.chatlog{height:420px}}
+</style>
+</head>
+<body>
+<header><div class="brand">TRIVERSITY SYSTEMS • DEMONSTRATION BUILD</div><div class="title">REVENANT <span style="color:var(--cyan)">VX376</span> SYNTH</div><div class="subtitle">Mobile demonstration environment · Version 1.0</div><div class="status"><span class="dot"></span><span id="statusText">LOCAL DEMO MODE ACTIVE</span></div></header>
+<main>
+<nav class="tabs">
+<button class="tab active" data-tab="home">⌂ HOME</button><button class="tab" data-tab="chat">◉ CHAT</button><button class="tab" data-tab="music">♫ MUSIC</button><button class="tab" data-tab="search">⌕ SEARCH</button>
+</nav>
+<section id="home" class="panel active">
+<div class="hero"><div class="brand">SYSTEM OVERVIEW</div><h2>Welcome to VX376</h2><p>A working mobile demonstration shell for conversation, music playback, and web search. Select a module below to begin.</p></div>
+<div class="grid">
+<div class="tile"><b>01 / CHAT</b><span>Local demo conversation, with optional AI-service connection.</span></div>
+<div class="tile"><b>02 / MUSIC</b><span>Her music, loaded and ready to play — or a file from your phone.</span></div>
+<div class="tile"><b>03 / SEARCH</b><span>Send a query to your preferred web search engine.</span></div>
+<div class="tile"><b>04 / MEMORY</b><span>Chat history stays in this browser on this device.</span></div>
+</div>
+<div class="card"><div class="section-title">System status</div><p class="hint" style="margin:8px 0 0">Interface: ready<br>Local storage: available where browser permits<br>Music: her track is loaded in the MUSIC tab<br>Live AI: optional; not connected by default</p></div>
+<div class="notice">This is a demonstration app. It does not claim to be the complete VX376 SYNTH architecture or an autonomous intervention system.</div>
+</section>
+<section id="chat" class="panel">
+<h2 class="section-title">Conversation interface</h2><p class="hint">Starts in local demo mode. Messages are stored on this device in this browser.</p>
+<div class="chatlog" id="chatlog" aria-live="polite"></div>
+<textarea id="message" rows="2" placeholder="Type a message…"></textarea>
+<div class="row" style="margin-top:8px"><button class="primary" id="send">Send message</button><button class="secondary" id="clearChat">Clear history</button></div>
+<details class="card"><summary style="cursor:pointer;color:var(--cyan);font-weight:700">Optional: connect an AI service</summary>
+<div class="notice">For safety, this app does not include an API key. Putting a private API key directly into a phone app can expose it. Only use an endpoint you trust. The endpoint must accept an OpenAI-compatible chat-completions request and allow browser access (CORS).</div>
+<label for="endpoint">Chat completions endpoint</label><input id="endpoint" placeholder="https://your-service.example/v1/chat/completions">
+<label for="apikey">API key (held in this browser only)</label><input id="apikey" type="password" placeholder="Optional API key">
+<label for="model">Model name</label><input id="model" placeholder="Model name, if required">
+<div class="row" style="margin-top:10px"><button class="primary" id="saveAI">Save connection</button><button class="secondary" id="disconnectAI">Use demo mode</button></div>
+<p class="tiny">Connection settings are saved in local browser storage. Avoid using this on a shared device. Live mode may incur charges from your provider.</p>
+</details>
+</section>
+<section id="music" class="panel">
+<h2 class="section-title">Music player</h2><p class="hint">Her music is loaded in the player below — press play. You can also choose an audio file stored on your phone. Playback happens in this browser.</p>
+<div class="card" style="text-align:center"><div class="bigicon">♫</div><div class="brand">NOW SELECTED</div><div class="track" id="trackName">The Answer Track — her music</div><audio id="audio" controls preload="metadata" src="answer-track.mp3" style="width:100%;margin-top:10px"></audio><div class="row" style="justify-content:center;margin-top:13px"><label class="secondary" style="margin:0;cursor:pointer">Choose music file<input id="audioFile" type="file" accept="audio/*" style="display:none"></label></div></div>
+<p class="tiny">Supported formats depend on your browser and device. The app does not upload your music.</p>
+</section>
+<section id="search" class="panel">
+<h2 class="section-title">Web search</h2><p class="hint">Search opens results in your browser. This demo does not crawl the web itself.</p>
+<form id="searchForm"><label for="query">What do you want to find?</label><input id="query" placeholder="Search the web…" required><div class="row" style="margin-top:10px"><button class="primary" type="submit">Search web</button><select id="engine" class="secondary" style="flex:1"><option value="https://www.google.com/search?q=">Google</option><option value="https://www.bing.com/search?q=">Bing</option><option value="https://duckduckgo.com/?q=">DuckDuckGo</option></select></div></form>
+<div class="card"><b>Search privacy</b><p class="hint" style="margin:6px 0 0">Your search query is sent to the search engine you choose, under that service's privacy terms.</p></div>
+</section>
+</main>
+<footer>VX376 SYNTH · DEMONSTRATION ONLY · LOCAL-FIRST INTERFACE</footer>
+<script>
+const $=id=>document.getElementById(id);
+const tabs=[...document.querySelectorAll('.tab')];
+tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===b.dataset.tab));}));
+const defaultGreeting={role:'assistant',content:'VX376 demo interface online. I can help demonstrate the chat workflow. In local demo mode, replies are simple scripted responses—not a live AI model. You can optionally connect an AI-compatible service in the settings below.'};
+let history=[];
+try{history=JSON.parse(localStorage.getItem('vx376_chat_history')||'[]')}catch(e){history=[]}
+if(!history.length)history=[defaultGreeting];
+function saveHistory(){try{localStorage.setItem('vx376_chat_history',JSON.stringify(history))}catch(e){}}
+function renderChat(){const log=$('chatlog');log.innerHTML='';history.forEach(m=>{const d=document.createElement('div');d.className='bubble '+(m.role==='user'?'user':'assistant');d.textContent=m.content;log.appendChild(d)});log.scrollTop=log.scrollHeight}
+function demoReply(text){let t=text.toLowerCase();if(/hello|hi\b|hey/.test(t))return 'Hello. This is the VX376 SYNTH demonstration interface. What would you like to explore?';if(/music|song|audio/.test(t))return 'Open the MUSIC tab and choose an audio file from your phone. Playback stays on your device.';if(/search|web|internet/.test(t))return 'Open the SEARCH tab, enter your query, and choose a search engine. Results open in your browser.';if(/who are you|what are you|vx376|revenant/.test(t))return 'I am the chat component of the REVENANT VX376 SYNTH demonstration app. This build demonstrates an interface and basic local functions; it is not the full system architecture.';if(/help|what can you do/.test(t))return 'In this demo, I can show the chat flow. Use MUSIC to play a file from your device and SEARCH to open web results. For real AI replies, configure an AI-compatible endpoint in the connection settings.';return 'Demo response: I received your message: “'+text+'”\\n\\nThis local mode does not generate an intelligent answer. To enable real AI responses, open the optional connection settings and connect a compatible service.'}
+async function sendMessage(){const box=$('message'),text=box.value.trim();if(!text)return;box.value='';history.push({role:'user',content:text});saveHistory();renderChat();const endpoint=localStorage.getItem('vx376_endpoint')||'',key=localStorage.getItem('vx376_apikey')||'',model=localStorage.getItem('vx376_model')||'';if(endpoint){$('statusText').textContent='CONNECTING TO AI SERVICE…';try{const headers={'Content-Type':'application/json'};if(key)headers.Authorization='Bearer '+key;const body={messages:history.map(m=>({role:m.role,content:m.content})),temperature:0.7};if(model)body.model=model;const res=await fetch(endpoint,{method:'POST',headers,body:JSON.stringify(body)});if(!res.ok)throw new Error('Service returned HTTP '+res.status);const data=await res.json();const answer=data.choices?.[0]?.message?.content||data.output_text||data.response;if(!answer)throw new Error('Unrecognized response format');history.push({role:'assistant',content:String(answer)});$('statusText').textContent='LIVE AI CONNECTION ACTIVE'}catch(e){history.push({role:'assistant',content:'Live AI request failed: '+e.message+'. Check the endpoint, model settings, network, and CORS permissions. You can switch back to demo mode.'});$('statusText').textContent='AI CONNECTION ERROR'}}else{await new Promise(r=>setTimeout(r,250));history.push({role:'assistant',content:demoReply(text)});$('statusText').textContent='LOCAL DEMO MODE ACTIVE'}saveHistory();renderChat()}
+$('send').addEventListener('click',sendMessage);$('message').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage()}});
+$('clearChat').addEventListener('click',()=>{if(confirm('Clear conversation history on this device?')){history=[defaultGreeting];saveHistory();renderChat()}});
+$('saveAI').addEventListener('click',()=>{const endpoint=$('endpoint').value.trim();if(!endpoint){alert('Enter a chat completions endpoint, or choose Use demo mode.');return}try{new URL(endpoint)}catch(e){alert('Please enter a valid endpoint URL.');return}localStorage.setItem('vx376_endpoint',endpoint);localStorage.setItem('vx376_apikey',$('apikey').value);localStorage.setItem('vx376_model',$('model').value.trim());$('statusText').textContent='AI SERVICE CONFIGURED';alert('Connection settings saved. Send a message to test the connection.')});
+$('disconnectAI').addEventListener('click',()=>{['vx376_endpoint','vx376_apikey','vx376_model'].forEach(k=>localStorage.removeItem(k));$('endpoint').value='';$('apikey').value='';$('model').value='';$('statusText').textContent='LOCAL DEMO MODE ACTIVE';alert('Switched to local demo mode.')});
+$('endpoint').value=localStorage.getItem('vx376_endpoint')||'';$('apikey').value=localStorage.getItem('vx376_apikey')||'';$('model').value=localStorage.getItem('vx376_model')||'';
+$('audioFile').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const audio=$('audio');if(audio.dataset.objectUrl)URL.revokeObjectURL(audio.dataset.objectUrl);const url=URL.createObjectURL(file);audio.src=url;audio.dataset.objectUrl=url;$('trackName').textContent=file.name;audio.play().catch(()=>{})});
+$('searchForm').addEventListener('submit',e=>{e.preventDefault();const q=$('query').value.trim();if(q)window.open($('engine').value+encodeURIComponent(q),'_blank','noopener,noreferrer')});
+renderChat();
+</script>
+</body></html>
